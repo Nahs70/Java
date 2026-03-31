@@ -1,72 +1,46 @@
 import java.awt.Color;
-
 import java.awt.Graphics;
-
 import javax.swing.JFrame;
-
 import javax.swing.JPanel;
 
 public class ShapesDemo extends JPanel {
 
-@Override
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // Clears background
 
-protected void paintComponent(Graphics g) {
+        // Draw a blue line
+        g.setColor(Color.BLUE);
+        g.drawLine(50, 50, 200, 50);
 
-super.paintComponent(g); // Clears background
+        // Draw red rectangle outline
+        g.setColor(Color.RED);
+        g.drawRect(50, 100, 100, 80);
 
-int width = getWidth();
+        // Fill green rectangle
+        g.setColor(Color.GREEN);
+        g.fillRect(200, 100, 100, 80);
 
-int height = getHeight();
+        // Draw black oval outline
+        g.setColor(Color.BLACK);
+        g.drawOval(50, 220, 100, 60);
 
-// Draw a blue line
+        // Fill orange circle
+        g.setColor(Color.ORANGE);
+        g.fillOval(200, 220, 60, 60);
 
-g.setColor(Color.BLUE);
+        // Fill cyan rounded rectangle
+        g.setColor(Color.CYAN);
+        g.fillRoundRect(50, 320, 120, 60, 20, 20);
+    }
 
-g.drawLine(50, 50, 200, 50); // From (50,50) to (200,50)
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Basic Shapes with Graphics");
+        ShapesDemo panel = new ShapesDemo();
 
-// Draw red rectangle outline
-
-g.setColor(Color.RED);
-
-g.drawRect(50, 100 100, 80); // x, y, width, height
-
-// Fill green rectangle
-
-g.setColor(Color.GREEN);
-
-g.fillRect(200, 100, 100, 80); // Fills solid color
-}
-
-// Draw black oval outline
-
-g.setColor(Color.BLACK);
-
-g.drawOval(50, 220, 100, 60); // Fits in bounding rectangle
-
-// Fill orange oval (circle if width==height)
-
-g.setColor(Color.ORANGE);
-
-g.fillOval(200, 220, 60, 60); // Filled circle
-
-// Fill cyan rounded rectangle
-
-g.setColor(Color.CYAN);
-
-g.fillRoundRect(50, 320, 120, 60, 20, 20); // arc width/height for corners
-}
-public static void main(String[] args) {
-
-JFrame frame = new JFrame("Basic Shapes with Graphics");
-
-ShapesDemo panel = new ShapesDemo();
-
-frame.add(panet;
-
-frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-frame.setSize(400, 500);
-
-frame.setVisible(true); // Adds panel and shows window
-}
+        frame.add(panel); // FIXED (was 'panet')
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 500);
+        frame.setVisible(true);
+    }
 }
